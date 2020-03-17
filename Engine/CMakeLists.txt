@@ -10,9 +10,10 @@ add_library(Engine SHARED ${all_SRCS})
 add_subdirectory(Vendor/glfw)
 target_link_libraries(Engine PRIVATE glfw)
 
-find_package(OpenGL REQUIRED)
+add_subdirectory(Vendor/glad)
+target_link_libraries(Engine PRIVATE glad)
 
+find_package(OpenGL REQUIRED)
 target_link_libraries(Engine PRIVATE ${OPENGL_gl_LIBRARY})
 
 target_include_directories(Engine PUBLIC "${PROJECT_SOURCE_DIR}/src")
-target_include_directories(Engine PRIVATE "${PROJECT_SOURCE_DIR}/vendor/glfw/include")
