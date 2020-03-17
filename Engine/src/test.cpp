@@ -2,16 +2,25 @@
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <glm/vec3.hpp>
+#include <glm/gtx/string_cast.hpp>
 
 #include <iostream>
 
 namespace Engine
 {
     void framebufferSizeCallback(GLFWwindow*, int width, int height);
-
+    
     int Init()
     {
         std::cout << "Hello from the Engine!" << std::endl;
+        
+
+        glm::vec3 vector{ 1, 2, 3 };
+        std::cout << "TEST_VECTOR::" << glm::to_string(vector) << std::endl;
+
+        vector *= 2;
+        std::cout << "TEST_VECTOR*2::" << glm::to_string(vector) << std::endl;
 
         // glfw: initialize and configure
         // ------------------------------

@@ -7,13 +7,16 @@ file(GLOB all_SRCS
 
 add_library(Engine SHARED ${all_SRCS})
 
+find_package(OpenGL REQUIRED)
+target_link_libraries(Engine PRIVATE ${OPENGL_gl_LIBRARY})
+
 add_subdirectory(Vendor/glfw)
 target_link_libraries(Engine PRIVATE glfw)
 
 add_subdirectory(Vendor/glad)
 target_link_libraries(Engine PRIVATE glad)
 
-find_package(OpenGL REQUIRED)
-target_link_libraries(Engine PRIVATE ${OPENGL_gl_LIBRARY})
+add_subdirectory(Vendor/glm)
+target_link_libraries(Engine PRIVATE glm)
 
 target_include_directories(Engine PUBLIC "${PROJECT_SOURCE_DIR}/src")
