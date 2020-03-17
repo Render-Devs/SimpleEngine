@@ -6,6 +6,7 @@
 #include <glm/gtx/string_cast.hpp>
 #include <imgui.h>
 #include <stb_image.h>
+#include <assimp/Importer.hpp>
 
 #include <iostream>
 
