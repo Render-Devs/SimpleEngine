@@ -5,6 +5,7 @@
 #include <glm/vec3.hpp>
 #include <glm/gtx/string_cast.hpp>
 #include <imgui.h>
+#include <stb_image.h>
 
 #include <iostream>
 
