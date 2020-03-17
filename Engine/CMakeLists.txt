@@ -1,3 +1,13 @@
+project(imgui VERSION 1.0.0)
+
+file(GLOB all_SRCS
+    "${PROJECT_SOURCE_DIR}/vendor/imgui/*.cpp"
+    "${PROJECT_SOURCE_DIR}/vendor/imgui/*.h"
+    )
+
+add_library(imgui STATIC ${all_SRCS})
+target_include_directories(imgui PUBLIC "${PROJECT_SOURCE_DIR}/vendor/imgui")
+
 project(Engine VERSION 0.0.1)
 
 file(GLOB all_SRCS
@@ -18,5 +28,7 @@ target_link_libraries(Engine PRIVATE glad)
 
 add_subdirectory(Vendor/glm)
 target_link_libraries(Engine PRIVATE glm)
+
+target_link_libraries(Engine PRIVATE imgui)
 
 target_include_directories(Engine PUBLIC "${PROJECT_SOURCE_DIR}/src")

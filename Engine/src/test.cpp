@@ -4,6 +4,7 @@
 #include <GLFW/glfw3.h>
 #include <glm/vec3.hpp>
 #include <glm/gtx/string_cast.hpp>
+#include <imgui.h>
 
 #include <iostream>
 
