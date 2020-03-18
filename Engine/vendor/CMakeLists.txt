@@ -43,17 +43,45 @@ target_link_libraries(Engine PRIVATE glm)
 # ASSIMP
 add_subdirectory(assimp)
 set_target_properties(assimp PROPERTIES 
-                      FOLDER "assimp")
+                      FOLDER "assimp"
+                      ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+                      LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+                      RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
+    )
 set_target_properties(assimp_cmd PROPERTIES 
-                      FOLDER "assimp")
+                      FOLDER "assimp"
+                      ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+                      LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+                      RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
+    )
 set_target_properties(IrrXML PROPERTIES 
-                      FOLDER "assimp")
+                      FOLDER "assimp"
+                      ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+                      LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+                      RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
+    )
 set_target_properties(unit PROPERTIES
-                      FOLDER "assimp")
+                      FOLDER "assimp"
+                      ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+                      LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+                      RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
+    )
 set_target_properties(UpdateAssimpLibsDebugSymbolsAndDLLs PROPERTIES
-                      FOLDER "assimp")
+                      FOLDER "assimp"
+                      ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+                      LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+                      RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
+    )
 set_target_properties(zlib PROPERTIES
-                      FOLDER "assimp")
+                      FOLDER "assimp"
+                      ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+                      LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+                      RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
+    )
 set_target_properties(zlibstatic PROPERTIES
-                      FOLDER "assimp")                         
+                      FOLDER "assimp"
+                      ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+                      LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+                      RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
+    )                        
 target_link_libraries(Engine PRIVATE assimp)
