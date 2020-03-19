@@ -1,6 +1,7 @@
 #pragma once
 #include "Window\IWindow.h"
 #include "GLFW\glfw3.h"
+#include <memory>
 
 class OpenGLWindow final : public IWindow
 {
@@ -31,6 +32,7 @@ private:
 	Data;
 
 	GLFWwindow* window;
+	std::unique_ptr<IContext> context;
 
 	static bool isInitialized;
 };

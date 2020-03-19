@@ -1,4 +1,5 @@
 #include "OpenGLWindow.h"
+#include "OpenGLContext.h"
 
 #if _WIN32 || _WIN64
 #define GLFW_EXPOSE_NATIVE_WIN32
@@ -36,7 +37,8 @@ void OpenGLWindow::Init(const WindowData& configData)
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
 		window = glfwCreateWindow(Data.width, Data.height, Data.title.c_str(), nullptr, nullptr);
-		//TODO: Register context here (Stenky)
+		context = std::make_unique<OpenGLContext>(window);
+		context->Init();
 		glfwSetWindowUserPointer(window, &Data);
 		SetVSync(true);
 		//TODO: Add events here (Stenky)
@@ -61,7 +63,7 @@ void OpenGLWindow::Shutdown()
 void OpenGLWindow::Update()
 {
 	glfwPollEvents();
-	//TODO: Update context here (Stenky)
+	context->SwapBuffers();
 }
 
 void OpenGLWindow::SetVSync(bool enabled) noexcept
