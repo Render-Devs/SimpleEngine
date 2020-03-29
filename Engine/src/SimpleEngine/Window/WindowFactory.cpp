@@ -1,6 +1,6 @@
 #include "WindowFactory.h"
-#include "RenderSpecific\OpenGL\Window\OpenGLWindow.h"
-#include "RenderSpecific\RenderAPI.h"
+#include "SimpleEngine\RenderSpecific\OpenGL\Window\OpenGLWindow.h"
+#include "SimpleEngine\RenderSpecific\RenderAPI.h"
 
 IWindow* WindowFactory::CreateWindow(const WindowData& data)
 {

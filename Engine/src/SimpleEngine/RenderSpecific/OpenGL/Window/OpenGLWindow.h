@@ -1,5 +1,6 @@
 #pragma once
-#include "Window\IWindow.h"
+#include "SimpleEngine\Window\IContext.h"
+#include "SimpleEngine\Window\IWindow.h"
 #include "GLFW\glfw3.h"
 #include <memory>
 

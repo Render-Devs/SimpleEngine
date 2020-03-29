@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Window\IContext.h"
+#include "SimpleEngine\Window\IContext.h"
 #include <GLFW\glfw3.h>
 #include <glad\glad.h>
 
