@@ -1,4 +1,4 @@
-#include "test.h"
+#include "Application.h"
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -10,14 +10,26 @@
 
 #include <iostream>
 
-namespace Engine
+namespace SimpleEngine::Core
 {
-    void framebufferSizeCallback(GLFWwindow*, int width, int height);
-    
-    int Init()
+    Application::Application()
+    = default;
+
+    Application::~Application()
+    = default;
+
+    // glfw: whenever the window size changed (by OS or user resize) this callback function executes
+    // ---------------------------------------------------------------------------------------------
+    // TODO(Nikita): REMOVE THIS!
+    void framebufferSizeCallback(GLFWwindow*, int width, int height)
     {
+        glViewport(0, 0, width, height);
+    }
+
+    void Application::Run()
+    {
+        // TODO(Nikita): REMOVE THIS!
         std::cout << "Hello from the Engine!" << std::endl;
-        
 
         glm::vec3 vector{ 1, 2, 3 };
         std::cout << "TEST_VECTOR::" << glm::to_string(vector) << std::endl;
@@ -39,22 +51,20 @@ namespace Engine
         {
             std::cout << "Failed to create GLFW window" << std::endl;
             glfwTerminate();
-            return - 1;
         }
         glfwMakeContextCurrent(window);
-        glfwSetFramebufferSizeCallback(window, framebufferSizeCallback);
+        glfwSetFramebufferSizeCallback(window, SimpleEngine::Core::framebufferSizeCallback);
 
         // glad: load all OpenGL function pointers
         // ---------------------------------------
         if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
         {
             std::cout << "Failed to initialize GLAD" << std::endl;
-            return -1;
         }
 
-        while(!glfwWindowShouldClose(window))
+        while (!glfwWindowShouldClose(window))
         {
-            if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+            if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
             {
                 glfwSetWindowShouldClose(window, true);
             }
@@ -67,15 +77,5 @@ namespace Engine
             glfwSwapBuffers(window);
             glfwPollEvents();
         }
-
-        return 0;
     }
-
-    // glfw: whenever the window size changed (by OS or user resize) this callback function executes
-    // ---------------------------------------------------------------------------------------------
-    void framebufferSizeCallback(GLFWwindow*, int width, int height)
-    {
-        glViewport(0, 0, width, height);
-    }
-
 }
