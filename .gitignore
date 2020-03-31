@@ -43,6 +43,11 @@ Generated\ Files/
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
+#VS 2019 files with CMAKE
+*.vcxproj
+*.vcxproj.filters
+*.sln
+
 # NUnit
 *.VisualState.xml
 TestResult.xml
@@ -348,6 +353,11 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+# CMAKE files
+CmakeFiles/
+CmakeCache.txt
+*.cmake
 
 # Builds directories
 [Bb]uild/
