@@ -1,3 +1,4 @@
+#include <glad\glad.h>
 #include "OpenGLContext.h"
 
 OpenGLContext::OpenGLContext(GLFWwindow* window) : windowHandle(window)

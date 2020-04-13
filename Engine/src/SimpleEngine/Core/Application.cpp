@@ -4,10 +4,12 @@
 
 namespace SimpleEngine::Core
 {
+
+    Application* Application::pInstance = nullptr;
+
     Application::Application()
     {
         pInstance = this;
-
         pWindow = std::make_unique<IWindow*>(WindowFactory::CreateWindow(WindowData("SimpleEngine", 1920, 1080)));
         pLayerStack = std::make_unique<LayerStack>(LayerStack());
         //TODO: Init Render here
@@ -24,7 +26,8 @@ namespace SimpleEngine::Core
 
     void Application::Run()
     {
-        while (isRunning)
+        GLFWwindow* w = reinterpret_cast<GLFWwindow*>((*pWindow)->GetNativeWindow());
+        while (!glfwWindowShouldClose(w)) //TODO: TEMP solution. Replace with isRunning after implement Window Events
         {
             float time = (float)glfwGetTime();
             //calculate deltaTime here
@@ -41,12 +44,6 @@ namespace SimpleEngine::Core
                 {
                     layer->OnRender();
                 }
-
-                //TODO: Implement UI layer calls here
-                //begin
-                //render
-                //end
-
 
                 (*pWindow)->Update();
             }

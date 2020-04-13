@@ -1,5 +1,3 @@
-#pragma once
-
 #include <SimpleEngine.h>
 
 class RenderLayer : public SimpleEngine::Core::ILayer

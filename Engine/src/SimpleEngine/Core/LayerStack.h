@@ -16,8 +16,8 @@ namespace SimpleEngine::Core
 		void PopLayer(ILayer* layer);
 		void PopOverlay(ILayer* layer);
 
-		std::vector<ILayer*>::iterator begin() { layers->begin(); }
-		std::vector<ILayer*>::iterator end() { layers->end(); }
+		std::vector<ILayer*>::iterator begin() { return layers->begin(); }
+		std::vector<ILayer*>::iterator end() { return layers->end(); }
 
 	private:
 		std::shared_ptr<std::vector<ILayer*>> layers;

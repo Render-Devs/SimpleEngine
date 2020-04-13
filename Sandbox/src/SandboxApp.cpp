@@ -1,6 +1,5 @@
-#include <SimpleEngine.h>
 #include "RenderLayer.h"
-
+#include <SimpleEngine\Core\EntryPoint.h>
 class Sandbox : public SimpleEngine::Core::Application
 {
 public:

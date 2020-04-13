@@ -5,6 +5,7 @@
 #include "LayerStack.h"
 #include "SimpleEngine\Window\IWindow.h"
 #include <memory>
+#include "SimpleEngine\RenderSpecific\OpenGL\Window\OpenGLWindow.h" //TEMP solution. TODO: Remove after implement Window events 
 
 namespace SimpleEngine::Core
 {
@@ -18,14 +19,13 @@ namespace SimpleEngine::Core
 
         void PushLayer(ILayer* layer);
         void PushUILayer(ILayer* layer);
-
-        inline static Application& Get() { return *pInstance; }
     private:
         std::unique_ptr<IWindow*> pWindow;
         bool isRunning = true;
         bool isMinimized = false;
         std::unique_ptr<LayerStack> pLayerStack;
         float lastFrameTime = 0.0f;
+    protected:
         static Application* pInstance;
     };
 
