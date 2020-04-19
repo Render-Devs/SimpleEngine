@@ -1,12 +1,13 @@
 #include "Allocator.h"
 
-SimpleEngine::Core::Memory::Allocator::Allocator(const std::size_t size)
+SimpleEngine::Core::Memory::Allocator::Allocator(const std::size_t totalSize)
 {
-    m_size = size;
+    m_totalSize = totalSize;
     m_used = 0;
+    m_peak = 0;
 }
 
 SimpleEngine::Core::Memory::Allocator::~Allocator()
 {
-    m_size = 0;
+    m_totalSize = 0;
 }
