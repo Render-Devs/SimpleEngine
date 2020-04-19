@@ -11,6 +11,8 @@ file(GLOB all_SRCS
     "${PROJECT_SOURCE_DIR}/src/SimpleEngine/Window/*.h"
     "${PROJECT_SOURCE_DIR}/src/SimpleEngine/Core/*.cpp"
     "${PROJECT_SOURCE_DIR}/src/SimpleEngine/Core/*.h"
+    "${PROJECT_SOURCE_DIR}/src/SimpleEngine/Core/Memory/*.h"
+    "${PROJECT_SOURCE_DIR}/src/SimpleEngine/Core/Memory/*.cpp"
     )
 
 add_library(Engine SHARED ${all_SRCS})
