@@ -1,5 +1,7 @@
 #include "IAllocator.h"
 
+#include <cstdlib>
+
 SimpleEngine::Core::Memory::IAllocator::IAllocator(const std::size_t totalSize)
 {
     m_totalSize = totalSize;
@@ -12,6 +14,11 @@ SimpleEngine::Core::Memory::IAllocator::~IAllocator()
         // TODO (Nikita): Show some logs about memory leaks.
     }
 
-    m_start = nullptr;
+    if(m_start != nullptr)
+    {
+        free(m_start);
+        m_start = nullptr;
+    }
+
     m_totalSize = 0;
 }
