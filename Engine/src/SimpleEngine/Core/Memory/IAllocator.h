@@ -11,7 +11,7 @@ namespace SimpleEngine::Core::Memory
     class IAllocator
     {
     protected:
-        void* m_start                   = nullptr;
+        void*       m_start             = nullptr;
         std::size_t m_totalSize         = 0;
         std::size_t m_used              = 0;
         u64         m_allocations_num   = 0;
