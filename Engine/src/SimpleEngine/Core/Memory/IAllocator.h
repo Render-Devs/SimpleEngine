@@ -24,10 +24,10 @@ namespace SimpleEngine::Core::Memory
         virtual void*   Allocate(const std::size_t size, const u8 alignment = DEFAULT_WORD_SIZE) = 0;
         virtual void    Free(void* p) = 0;
 
-        const void* getStart()          const { return m_start; }
-        std::size_t getSize()           const { return m_totalSize; }
-        std::size_t getUsedMemory()     const { return m_used; }
-        std::size_t getAllocationsNum() const { return m_allocations_num; }
+        const void*     getStart()          const { return m_start; }
+        std::size_t     getSize()           const { return m_totalSize; }
+        std::size_t     getUsedMemory()     const { return m_used; }
+        std::size_t     getAllocationsNum() const { return m_allocations_num; }
     };
 
     inline void* alignForward(const void* address, u8 alignment)
@@ -58,6 +58,15 @@ namespace SimpleEngine::Core::Memory
         if(adjustment < headerSize)
         {
             neededSpace -= adjustment;
+
+            adjustment += alignment * (neededSpace / alignment);
+
+            if(neededSpace % alignment > 0)
+            {
+                adjustment += alignment;
+            }
         }
+
+        return adjustment;
     }
 }
