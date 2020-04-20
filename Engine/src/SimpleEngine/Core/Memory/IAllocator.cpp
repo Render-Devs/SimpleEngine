@@ -1,11 +1,11 @@
-#include "Allocator.h"
+#include "IAllocator.h"
 
-SimpleEngine::Core::Memory::Allocator::Allocator(const std::size_t totalSize)
+SimpleEngine::Core::Memory::IAllocator::IAllocator(const std::size_t totalSize)
 {
     m_totalSize = totalSize;
 }
 
-SimpleEngine::Core::Memory::Allocator::~Allocator()
+SimpleEngine::Core::Memory::IAllocator::~IAllocator()
 {
     if(m_allocations_num != 0 || m_used != 0)
     {
