@@ -25,10 +25,10 @@ namespace SimpleEngine::Core::Memory
         virtual void    Free(void* p) = 0;
         virtual void    Reset() = 0;
 
-        const void*     getStart()          const { return m_start; }
-        std::size_t     getSize()           const { return m_totalSize; }
-        std::size_t     getUsedMemory()     const { return m_used; }
-        std::size_t     getAllocationsNum() const { return m_allocations_num; }
+        const void*     GetStart()          const { return m_start; }
+        std::size_t     GetSize()           const { return m_totalSize; }
+        std::size_t     GetUsedMemory()     const { return m_used; }
+        std::size_t     GetAllocationsNum() const { return m_allocations_num; }
     };
 
     inline void* AlignForward(const void* address, u8 alignment)
