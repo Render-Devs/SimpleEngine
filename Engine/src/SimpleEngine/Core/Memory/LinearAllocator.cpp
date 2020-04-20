@@ -28,7 +28,7 @@ void SimpleEngine::Core::Memory::LinearAllocator::Init()
 
 void* SimpleEngine::Core::Memory::LinearAllocator::Allocate(std::size_t size, u8 alignment)
 {
-    u8 adjustment = alignForwardAdjustment(m_current, alignment);
+    u8 adjustment = AlignForwardAdjustment(m_current, alignment);
 
     if (m_used + adjustment + size > m_totalSize) return nullptr;
 

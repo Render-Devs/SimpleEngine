@@ -31,7 +31,7 @@ namespace SimpleEngine::Core::Memory
         std::size_t     getAllocationsNum() const { return m_allocations_num; }
     };
 
-    inline void* alignForward(const void* address, u8 alignment)
+    inline void* AlignForward(const void* address, u8 alignment)
     {
         return (void*) (
             (reinterpret_cast<uptr>(address) + static_cast<uptr>(alignment - 1)) &
@@ -39,7 +39,7 @@ namespace SimpleEngine::Core::Memory
             );
     }
 
-    inline u8 alignForwardAdjustment(const void* address, u8 alignment)
+    inline u8 AlignForwardAdjustment(const void* address, u8 alignment)
     {
         u8 adjustment = alignment - (reinterpret_cast<uptr>(address) & static_cast<uptr>(alignment - 1));
 
@@ -51,9 +51,9 @@ namespace SimpleEngine::Core::Memory
         return adjustment;
     }
 
-    inline u8 alignForwardAdjustmentWithHeader(const void* address, u8 alignment, u8 headerSize)
+    inline u8 AlignForwardAdjustmentWithHeader(const void* address, u8 alignment, u8 headerSize)
     {
-        u8 adjustment = alignForwardAdjustment(address, alignment);
+        u8 adjustment = AlignForwardAdjustment(address, alignment);
         u8 neededSpace = headerSize;
 
         if(adjustment < headerSize)
