@@ -6,5 +6,5 @@ file(GLOB all_SRCS
     )
 
 add_executable(Sandbox ${all_SRCS})
-
+include_directories("../Engine/vendor/glfw/include") #remove after implement Window Events
 target_link_libraries(Sandbox PRIVATE Engine)

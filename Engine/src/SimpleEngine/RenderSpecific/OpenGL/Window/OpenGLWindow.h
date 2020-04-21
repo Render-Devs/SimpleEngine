@@ -1,10 +1,11 @@
 #pragma once
+#include "SimpleEngine\Core\Core.h"
 #include "SimpleEngine\Window\IContext.h"
 #include "SimpleEngine\Window\IWindow.h"
 #include "GLFW\glfw3.h"
 #include <memory>
 
-class OpenGLWindow final : public IWindow
+class SE_API OpenGLWindow final : public IWindow
 {
 public:
 	OpenGLWindow(const WindowData& configData) noexcept;
@@ -12,8 +13,8 @@ public:
 
 	void Update() override;
 
-	inline uint32_t GetWidth() const noexcept override { Data.width; }
-	inline uint32_t GetHeight() const noexcept override { Data.height; }
+	inline uint32_t GetWidth() const noexcept override { return Data.width; }
+	inline uint32_t GetHeight() const noexcept override { return Data.height; }
 	void SetVSync(bool enabled) noexcept override;
 	bool IsVSync() const noexcept override;
 
@@ -34,6 +35,4 @@ private:
 
 	GLFWwindow* window;
 	std::unique_ptr<IContext> context;
-
-	static bool isInitialized;
 };

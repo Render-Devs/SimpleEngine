@@ -6,6 +6,8 @@
 #include "GLFW\glfw3native.h"
 #endif
 
+static bool isInitialized = false;
+
 OpenGLWindow::OpenGLWindow(const WindowData& configData) noexcept
 {
 	Init(configData);
